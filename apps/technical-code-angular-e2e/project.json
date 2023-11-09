@@ -1,0 +1,33 @@
+{
+  "name": "technical-code-angular-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/technical-code-angular-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/technical-code-angular-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "technical-code-angular:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "technical-code-angular:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "technical-code-angular:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/technical-code-angular-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["technical-code-angular"]
+}
