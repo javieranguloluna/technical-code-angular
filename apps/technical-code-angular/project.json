@@ -20,7 +20,10 @@
           "apps/technical-code-angular/src/favicon.ico",
           "apps/technical-code-angular/src/assets"
         ],
-        "styles": ["apps/technical-code-angular/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/purple-green.css",
+          "apps/technical-code-angular/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {

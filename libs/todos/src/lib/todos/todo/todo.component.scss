@@ -1,0 +1,22 @@
+div.todo {
+    display: flex;
+    border: solid 2px #666;
+    border-radius: 7px;
+    margin: 1rem 0;
+
+    mat-list-option[aria-selected="true"] {
+        opacity: 0.5;
+        .name {
+            color: #666;
+        }
+    }
+
+    button[name="remove"] {
+        visibility: hidden;
+    }
+    
+    &:hover button[name="remove"] {
+        visibility: visible;
+    }
+}
+

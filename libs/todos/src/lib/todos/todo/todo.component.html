@@ -1,0 +1,8 @@
+<div class="todo">
+    <mat-list-option name="list-item" [value]="todo.id" [selected]="todo.check" role="listitem">
+        <span class="name">{{todo.name}}</span>
+    </mat-list-option>
+    <button name="remove" mat-icon-button color="warn" (click)="removeTodo()">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>

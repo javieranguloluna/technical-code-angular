@@ -1,0 +1,12 @@
+<form>
+    <mat-form-field>
+        <mat-label>New Todo</mat-label>
+        <input id="todo-input" matInput type="text" [formControl]="name">
+    </mat-form-field>
+    <button
+        id="add-todo"
+        [disabled]="!name.valid"
+        mat-raised-button color="primary"
+        (click)="addTodo()"
+    >Add</button>
+</form>

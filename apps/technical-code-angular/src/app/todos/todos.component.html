@@ -1,0 +1,12 @@
+<div class="container">
+  <technical-code-angular-todo-form
+    (add)="addTodo($event)"
+  ></technical-code-angular-todo-form>
+  
+  <technical-code-angular-todos-list
+    [todos]="$todos"
+    (remove)="removeTodo($event)"
+    (update)="updateTodo($event)"
+  ></technical-code-angular-todos-list>
+  
+</div>

@@ -1,0 +1,20 @@
+<header>
+    <mat-button-toggle-group name="filter" value="all" (change)="filter($event)" aria-label="Font Style">
+        <mat-button-toggle value="all">All</mat-button-toggle>
+        <mat-button-toggle value="pending">Pending</mat-button-toggle>
+        <mat-button-toggle value="completed">Completed</mat-button-toggle>
+    </mat-button-toggle-group>
+    <span class="pending">{{pending | async}} pending</span>
+</header>
+@if ($todosToShow | async; as todosToShow) {
+    <mat-selection-list role="list" (selectionChange)="select($event)">
+    @for (todo of todosToShow; track todo.id) {
+        <technical-code-angular-todo
+            [todo]="todo"
+            (remove)="removeTodo(todo.id)"
+        ></technical-code-angular-todo>
+    } @empty {
+        <mat-list-item>Nothing to do...</mat-list-item>
+    }
+    </mat-selection-list>
+}
