@@ -12,7 +12,7 @@ import { Observable, map, of } from 'rxjs';
   standalone: true,
   imports: [CommonModule, MatListModule, TodoComponent, MatButtonToggleModule],
   templateUrl: './todos-list.component.html',
-  styleUrl: './todos-list.component.scss'
+  styleUrls: ['./todos-list.component.scss']
 })
 export class TodosListComponent implements OnInit {
 
@@ -61,6 +61,6 @@ export class TodosListComponent implements OnInit {
   }
 }
 
-function sortChecked (todos: Todo[]): Todo[] {
+export function sortChecked (todos: Todo[]): Todo[] {
   return todos.sort((a, b) => (a.check === b.check) ? 0 : a.check ? 1 : -1)
 }

@@ -11,7 +11,7 @@ import { Todo } from '../models';
   standalone: true,
   imports: [CommonModule, MatListModule, MatIconModule, MatButtonModule],
   templateUrl: './todo.component.html',
-  styleUrl: './todo.component.scss'
+  styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent {
   @Input() todo!: Todo;

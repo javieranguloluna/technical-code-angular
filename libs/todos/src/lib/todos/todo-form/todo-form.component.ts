@@ -12,7 +12,7 @@ import { Todo } from '../models';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule , MatInputModule, MatFormFieldModule, MatButtonModule],
   templateUrl: './todo-form.component.html',
-  styleUrl: './todo-form.component.scss'
+  styleUrls: ['./todo-form.component.scss']
 })
 export class TodoFormComponent {
   @Output() add = new EventEmitter<Todo>();
