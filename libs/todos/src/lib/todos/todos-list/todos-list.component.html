@@ -11,6 +11,7 @@
     @for (todo of todosToShow; track todo.id) {
         <technical-code-angular-todo
             [todo]="todo"
+            (update)="updateTodo($event)"
             (remove)="removeTodo(todo.id)"
         ></technical-code-angular-todo>
     } @empty {

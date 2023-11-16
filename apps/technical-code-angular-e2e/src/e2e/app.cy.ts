@@ -87,4 +87,29 @@ describe('technical-code-angular-e2e', () => {
     firstTodo.should('not.exist')
   })
 
+  it('should display edit button on hover', () => {
+    const todosList = getTodosList()
+    const firstTodo = todosList.get('div.todo').first()
+    firstTodo.realHover()
+    firstTodo.get('button[name="edit"]').should('be.visible')
+  })
+
+  it('should display input on edit mode', () => {
+    const todosList = getTodosList()
+    const firstTodo = todosList.get('div.todo').first()
+    firstTodo.should('exist')
+    firstTodo.find('button[name="edit"]').click()
+    firstTodo.get('input.inline-name').should('be.visible')
+  })
+
+  it('should update name on edit mode', () => {
+    const todosList = getTodosList()
+    const firstTodo = todosList.get('div.todo').first()
+    firstTodo.should('exist')
+    firstTodo.find('button[name="edit"]').click()
+    firstTodo.get('input.inline-name').type('Updated Todo')
+    firstTodo.get('button[name="save"]').click()
+    firstTodo.get('span.name').should('contain', 'Updated Todo')
+  })
+
 });

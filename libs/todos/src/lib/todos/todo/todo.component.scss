@@ -1,8 +1,27 @@
 div.todo {
     display: flex;
+    align-items: center;
     border: solid 2px #666;
     border-radius: 7px;
     margin: 1rem 0;
+
+    mat-form-field {
+        width: 100%;
+        margin-top: 21px;
+    }
+
+    .name {
+        padding-left: 16px;
+    }
+
+    
+    ::ng-deep .mat-mdc-text-field-wrapper {
+        min-height: 26px;
+        max-height: 50px;
+    }
+    ::ng-deep .mat-mdc-form-field-infix {
+        padding-top: 13px !important;
+    }
 
     mat-list-option[aria-selected="true"] {
         opacity: 0.5;
@@ -11,10 +30,12 @@ div.todo {
         }
     }
 
+    button[name="edit"],
     button[name="remove"] {
         visibility: hidden;
     }
     
+    &:hover button[name="edit"],
     &:hover button[name="remove"] {
         visibility: visible;
     }

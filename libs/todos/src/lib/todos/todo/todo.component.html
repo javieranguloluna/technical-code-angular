@@ -1,8 +1,34 @@
 <div class="todo">
-    <mat-list-option name="list-item" [value]="todo.id" [selected]="todo.check" role="listitem">
-        <span class="name">{{todo.name}}</span>
+    <mat-list-option
+        name="list-item"
+        togglePosition="before"
+        [value]="todo"
+        [selected]="todo.check"
+        [disableRipple]="editionMode"
+        role="listitem"
+    >
+        @if (editionMode) {
+            <mat-form-field (click)="blockEvent($event)" appearance="outline">
+                <input class="inline-name" matInput type="text" [formControl]="name">
+            </mat-form-field>
+        } @else {
+            <span class="name">{{todo.name}}</span>
+        }
     </mat-list-option>
-    <button name="remove" mat-icon-button color="warn" (click)="removeTodo()">
-        <mat-icon>delete</mat-icon>
-    </button>
+
+    @if (editionMode) {
+        <button name="save" [disabled]="name.invalid" mat-icon-button color="accent" (click)="closeEditionMode(true)">
+            <mat-icon>check</mat-icon>
+        </button>
+        <button name="cancel" mat-icon-button color="warn" (click)="closeEditionMode(false)">
+            <mat-icon>clear</mat-icon>
+        </button>
+    } @else {
+        <button name="edit" mat-icon-button color="primary" (click)="edit()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button name="remove" mat-icon-button color="warn" (click)="removeTodo()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    }
 </div>

@@ -32,9 +32,9 @@ export class TodosService {
     ])
   }
 
-  public updateTodo(id: string): void {
-    this.$todos.next(this.$todos.value.map(td => td.id === id
-      ? { ...td, check: !td.check } 
+  public updateTodo(todo: Todo): void {
+    this.$todos.next(this.$todos.value.map(td => td.id === todo.id
+      ? todo
       : td
     ))
   }

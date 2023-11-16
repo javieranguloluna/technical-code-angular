@@ -19,7 +19,7 @@ export class TodosListComponent implements OnInit {
   @Input('todos') _$todos!: Observable<Todo[]>
 
   @Output() remove = new EventEmitter<string>()
-  @Output() update = new EventEmitter<string>()
+  @Output() update = new EventEmitter<Todo>()
 
   private $todos: Observable<Todo[]> = of([])
   protected $todosToShow: Observable<Todo[]> = of([])
@@ -51,8 +51,15 @@ export class TodosListComponent implements OnInit {
 
   protected select(change: MatSelectionListChange): void {
     change.options.forEach(op => {
-      this.update.emit(op.value)
+      this.update.emit({
+        ...op.value,
+        check: !op.value.check
+      })
     })
+  }
+
+  protected updateTodo(todo: Todo): void {
+    this.update.emit(todo)
   }
 
 

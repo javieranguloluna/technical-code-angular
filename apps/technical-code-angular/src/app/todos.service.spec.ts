@@ -40,9 +40,13 @@ describe('TodosService', () => {
   });
 
   it('should update a todo', () => {
-    const todoId: string = '1';
-    service.updateTodo(todoId);
-    expect(todosSubject.value.find(f => f.id === todoId)?.check).toEqual(false);
+    const todo: Todo = {
+      id: '1',
+      name: 'Updated Todo',
+      check: true
+    };
+    service.updateTodo(todo);
+    expect(todosSubject.value.find(f => f.id === todo.id)).toEqual(todo);
   });
 
   it('should remove a todo', () => {

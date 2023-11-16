@@ -24,8 +24,8 @@ export class TodosComponent {
     this.todosService.addTodo(todo)
   }
 
-  updateTodo(id: string): void {
-    this.todosService.updateTodo(id)
+  updateTodo(todo: Todo): void {
+    this.todosService.updateTodo(todo)
   }
 
   removeTodo(id: string): void {

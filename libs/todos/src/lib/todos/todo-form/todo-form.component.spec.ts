@@ -7,12 +7,15 @@ describe('TodoFormComponent', () => {
     const component = new TodoFormComponent()
     expect(component).toBeTruthy();
   });
-  it('should emit new todo when clicked and reset the form', () => {
+  it('should emit new todo when clicked and reset the form', (done) => {
     const component = new TodoFormComponent()
     component['name'].setValue('Test Todo')
     component.add.pipe(first()).subscribe((todo: Todo) => {
-      expect(todo).toBe('Test Todo')
-      expect(component['name'].value).toBe('')
+      expect(todo.name).toBe('Test Todo')
+      setTimeout(() => {
+        expect(component['name'].value).toBe(null)
+        done()
+      },500)
     })
     component.addTodo()
   });
